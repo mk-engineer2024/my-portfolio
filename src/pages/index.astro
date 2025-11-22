@@ -8,6 +8,7 @@ import Background from '../components/Background.jsx';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NaN – Backend Engineer / Platform Developer</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Pro:wght@300;400&display=swap');
 
@@ -244,7 +245,7 @@ import Background from '../components/Background.jsx';
   </style>
 </head>
 <body>
-  <Background client:load />
+  <Background client:only="react" />
 
   <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -324,9 +325,11 @@ import Background from '../components/Background.jsx';
       currentX += (mouseX - currentX) * 0.08;
       currentY += (mouseY - currentY) * 0.08;
 
-      cursorGlow.style.left = `${currentX}px`;
-      cursorGlow.style.top = `${currentY}px`;
-      cursorGlow.style.opacity = '1';
+      if (cursorGlow) {
+        cursorGlow.style.left = `${currentX}px`;
+        cursorGlow.style.top = `${currentY}px`;
+        cursorGlow.style.opacity = '1';
+      }
 
       requestAnimationFrame(animateCursor);
     }

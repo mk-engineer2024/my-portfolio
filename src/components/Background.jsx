@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react';
-import p5 from 'p5';
 
 export default function Background() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    // Wait for p5 to load from CDN
+    if (typeof window.p5 === 'undefined') return;
+
     let sketch = (p) => {
       // Particles for organic flow
       let particles = [];
@@ -107,10 +109,6 @@ export default function Background() {
         }
       }
 
-      // Noise field visualization
-      let noiseScale = 0.003;
-      let noiseStrength = 0;
-
       p.setup = () => {
         const canvas = p.createCanvas(p.windowWidth, p.windowHeight);
         canvas.parent(canvasRef.current);
@@ -126,9 +124,6 @@ export default function Background() {
         p.fill(palette.bg[0], palette.bg[1], palette.bg[2], 25);
         p.noStroke();
         p.rect(0, 0, p.width, p.height);
-
-        // Ambient noise field (subtle)
-        noiseStrength = p.sin(p.frameCount * 0.005) * 0.1 + 0.1;
 
         // Update and display all particles
         for (let particle of particles) {
@@ -158,7 +153,7 @@ export default function Background() {
       };
     };
 
-    const p5Instance = new p5(sketch);
+    const p5Instance = new window.p5(sketch);
 
     return () => {
       p5Instance.remove();
