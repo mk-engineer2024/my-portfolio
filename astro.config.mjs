@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://nanyanen87.github.io',
-  base: '/personal-branding-site-test',
+  site: 'https://profile.nanyanen.net',
+  base: '/',
   integrations: [react(), tailwind()],
 });
