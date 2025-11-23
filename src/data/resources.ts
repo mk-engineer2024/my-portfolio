@@ -13,17 +13,17 @@ export const bio = "上場企業PLエンジニアとして、CAD自動化の開�
 // リンク
 export const companyLink: { label: string; url?: string } = {
   label: "Company",
-  url: "https://technologies.link-u.co.jp/company"
+  // url: "https://technologies.link-u.co.jp/company"
 };
 
 export const blogLink: { label: string; url?: string } = {
   label: "Tech Blog",
-  url: "https://zenn.dev/nanyanen"
+  // url: "https://zenn.dev/nanyanen"
 };
 
 export const githubLink: { label: string; url: string } = {
   label: "GitHub",
-  url: "https://github.com/nanyanen87"
+  url: "https://github.com/mk-engineer2024"
 };
 
 // スキル
