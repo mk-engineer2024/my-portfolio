@@ -1,5 +1,18 @@
 ---
 import Background from '../components/Background.jsx';
+import {
+  name,
+  fullRole,
+  bio,
+  companyLink,
+  blogLink,
+  githubLink,
+  coreStack,
+  expertiseList,
+  strengths,
+  currentFocusList,
+  defaultTitle
+} from '../data/resources';
 ---
 
 <!DOCTYPE html>
@@ -7,7 +20,7 @@ import Background from '../components/Background.jsx';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NaN – Backend Engineer / Platform Developer</title>
+  <title>{defaultTitle}</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Pro:wght@300;400&display=swap');
@@ -251,57 +264,56 @@ import Background from '../components/Background.jsx';
 
   <div class="container">
     <div class="name-section">
-      <h1>NaN</h1>
-      <p class="role">Backend Engineer<br>Platform Developer</p>
+      <h1>{name}</h1>
+      <p class="role" set:html={fullRole.split(' / ').join('<br>')}></p>
     </div>
 
     <div class="content">
       <div class="section">
         <h2>Profile</h2>
-        <p>京都大学 総合人間学部 卒。Link-U Technologies にて LAMP/Linux 環境で4年半フルスタック開発に従事。現在は Supabase / Cloudflare / TypeScript を軸にしたプラットフォーム開発に注力。</p>
+        <p>{bio}</p>
         <div class="links">
-          <a href="https://technologies.link-u.co.jp/company" target="_blank" rel="noopener">Company</a>
-          <a href="https://zenn.dev/nanyanen" target="_blank" rel="noopener">Tech Blog</a>
-          <a href="https://github.com/nanyanen87" target="_blank" rel="noopener">GitHub</a>
+          {companyLink.url && (
+            <a href={companyLink.url} target="_blank" rel="noopener">{companyLink.label}</a>
+          )}
+          {blogLink.url && (
+            <a href={blogLink.url} target="_blank" rel="noopener">{blogLink.label}</a>
+          )}
+          {githubLink.url && (
+            <a href={githubLink.url} target="_blank" rel="noopener">{githubLink.label}</a>
+          )}
         </div>
       </div>
 
       <div class="section">
         <h2>Core Stack</h2>
         <div class="tech-stack">
-          <span class="tech-tag">Supabase</span>
-          <span class="tech-tag">PostgreSQL</span>
-          <span class="tech-tag">Cloudflare Workers</span>
-          <span class="tech-tag">TypeScript</span>
-          <span class="tech-tag">Node.js</span>
-          <span class="tech-tag">RLS</span>
-          <span class="tech-tag">R2</span>
+          {coreStack.map((skill) => (
+            <span class="tech-tag">{skill}</span>
+          ))}
         </div>
       </div>
 
       <div class="section">
         <h2>Expertise</h2>
         <ul>
-          <li>データモデル設計（正規化・非正規化戦略）</li>
-          <li>権限/公開状態/RLS の整合性ある設計</li>
-          <li>Cloudflare Workers を中心としたコスト最適化</li>
-          <li>ログ基盤・アラート設計（R2 / DO バッファリング）</li>
-          <li>SaaS の土台となる基盤層設計</li>
+          {expertiseList.map((expertise) => (
+            <li>{expertise}</li>
+          ))}
         </ul>
       </div>
 
       <div class="section">
         <h2>Strengths</h2>
-        <p>ややこしい問題を構造で理解し、分解して最適解を組み立てる。冷静にコストと価値のトレードオフを見る。要件から逆算して全体設計を描く（データモデル → API → 認証認可 → 運用）。</p>
+        <p>{strengths}</p>
       </div>
 
       <div class="section">
         <h2>Current Focus</h2>
         <ul>
-          <li>Supabase + Cloudflare を軸にした軽量プラットフォーム設計</li>
-          <li>オブザーバビリティ / トレーシング / ログ運用</li>
-          <li>ストレージ運用（R2 / KV）とキャッシュ戦略</li>
-          <li>AI を組み込んだ開発環境整備（Claude Code / Cursor）</li>
+          {currentFocusList.map((focus) => (
+            <li>{focus}</li>
+          ))}
         </ul>
       </div>
     </div>
