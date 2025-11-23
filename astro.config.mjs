@@ -6,4 +6,5 @@ export default defineConfig({
   site: 'https://mk-engineer2024.github.io',
   base: '/my-portfolio/',
   integrations: [react(), tailwind()],
+  output: 'static',
 });
