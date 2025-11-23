@@ -8,8 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "astro check && eslint . --ext .js,.jsx,.ts,.tsx,.astro",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --fix",
+    "lint": "astro check && eslint .",
+    "lint:fix": "eslint . --fix",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "typescript": "^5.7.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
     "@typescript-eslint/eslint-plugin": "^8.18.2",
     "@typescript-eslint/parser": "^8.18.2",
     "astro-eslint-parser": "^1.1.0",
