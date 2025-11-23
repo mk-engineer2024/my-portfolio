@@ -11,17 +11,17 @@ export const fullRole = `${role} / ${roleSecondary}`;
 export const bio = "上場企業PLエンジニアとして、CAD自動化の開発に従事。";
 
 // リンク
-export const companyLink = {
+export const companyLink: { label: string; url?: string } = {
   label: "Company",
   // url: "https://technologies.link-u.co.jp/company"
 };
 
-export const blogLink = {
+export const blogLink: { label: string; url?: string } = {
   label: "Tech Blog",
   // url: "https://zenn.dev/nanyanen"
 };
 
-export const githubLink = {
+export const githubLink: { label: string; url: string } = {
   label: "GitHub",
   url: "https://github.com/nanyanen87"
 };

@@ -151,9 +151,15 @@ import { name, fullRole, companyLink, blogLink, githubLink } from '../data/resou
     <p class="calm-role">{fullRole}</p>
 
     <div class="calm-links">
-      <a href={companyLink.url} class="calm-link" target="_blank" rel="noopener">{companyLink.label}</a>
-      <a href={blogLink.url} class="calm-link" target="_blank" rel="noopener">{blogLink.label}</a>
-      <a href={githubLink.url} class="calm-link" target="_blank" rel="noopener">{githubLink.label}</a>
+      {companyLink.url && (
+        <a href={companyLink.url} class="calm-link" target="_blank" rel="noopener">{companyLink.label}</a>
+      )}
+      {blogLink.url && (
+        <a href={blogLink.url} class="calm-link" target="_blank" rel="noopener">{blogLink.label}</a>
+      )}
+      {githubLink.url && (
+        <a href={githubLink.url} class="calm-link" target="_blank" rel="noopener">{githubLink.label}</a>
+      )}
     </div>
 
     <div class="calm-footer">
